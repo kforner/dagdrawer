@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+        <title>dagdrawer test 1</title>
+
+        <!-- setup extjs 3.3 -->
+        <link rel="stylesheet" type="text/css" href="../../ext-3.3.1/resources/css/ext-all.css" />
+        <script type="text/javascript" src="../../ext-3.3.1/adapter/ext/ext-base-debug.js"></script>
+        <script type="text/javascript" src="../../ext-3.3.1/ext-all-debug.js"></script>
+		<script type="text/javascript">
+		  //tells Ext where to find the empty image it needs for some widgets (preferably from your own server/domain)
+		  Ext.BLANK_IMAGE_URL = '../../ext-3.3.1/resources/images/default/s.gif';  // Ext 2.0
+		</script>
+
+    
+    <script type="text/javascript" src="../../raphael/raphael-max.js"></script> <!-- raphael lib -->
+    
+    <!-- our libs -->
+    <script type="text/javascript" src="../../utils.js"></script>
+    <script type="text/javascript" src="../../notifications.js"></script>
+    <script type="text/javascript" src="../../dagdrawer.js"></script>
+ 
+</head>
+
+ <body>
+ 
+<div id="raphael_dag_holder"></div>
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript" src="dag_settings.js"></script>
+<script type="text/javascript" charset="utf-8">
+//window.onload = function () { // only needed if div not yet created
+var dag = new DagDrawer(nodes, edges, userSettings, 'raphael_dag_holder');
+//};
+
+</script>
+
+</body>
+</html>

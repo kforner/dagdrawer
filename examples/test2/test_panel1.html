@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+        <title>dagdrawer test 1</title>
+
+        <!-- setup extjs 3.3 -->
+        <link rel="stylesheet" type="text/css" href="../../ext-3.3.1/resources/css/ext-all.css" />
+        <script type="text/javascript" src="../../ext-3.3.1/adapter/ext/ext-base-debug.js"></script>
+        <script type="text/javascript" src="../../ext-3.3.1/ext-all-debug.js"></script>
+        <script type="text/javascript">
+          //tells Ext where to find the empty image it needs for some widgets (preferably from your own server/domain)
+          Ext.BLANK_IMAGE_URL = '../../ext-3.3.1/resources/images/default/s.gif';  // Ext 2.0
+        </script>
+
+    <script type="text/javascript" src="../../raphael/raphael-max.js"></script> <!-- raphael lib -->
+    
+    <!-- our libs -->
+    <script type="text/javascript" src="../../utils.js"></script>
+    <script type="text/javascript" src="../../datadumper.js"></script>
+    <script type="text/javascript" src="../../objectbrowser.js"></script>
+    <script type="text/javascript" src="../../notifications.js"></script>
+    <script type="text/javascript" src="../../dagdrawer.js"></script>
+    <script type="text/javascript" src="../../panel_interface.js"></script>
+ 
+</head>
+
+ <body>
+ 
+<div id='panel'></div>
+<div id="raphael_dag_holder"></div> 
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript" src="dag_settings.js"></script>
+
+<script type="text/javascript">
+var dag;
+
+window.onload = function () {
+    Notifications.notify('DAG', "creating raphael canvas");
+    dag = new DagDrawer(nodes, edges, userSettings, 'raphael_dag_holder');
+
+};
+
+Ext.onReady(function(){
+    Ext.QuickTips.init();
+    var features = {"stateExpirationTime":365,"stateId":"DAG","stateful":true,"statePath":"/dag/example3"};
+    var panel = create_panel_for_dag( {dag:dag, dag_div_id:"raphael_dag_holder", panel_div_id:'panel', features:features} );
+
+});
+</script>
+
+
+</body>
+</html>
